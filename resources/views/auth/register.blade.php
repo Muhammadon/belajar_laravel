@@ -1,6 +1,17 @@
 @extends('layouts.app') @section('title', 'Register') @section('content')
 <section class="card">
     <h2>Register</h2>
+
+    @if ($errors->any())
+    <div class="error">
+        <ul>
+            @foreach ($errors->all() as $err)
+            <li>{{ $err }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+    
     <form method="POST" action="{{ url('/register') }}" novalidate>
         @csrf
         <label>Nama</label>

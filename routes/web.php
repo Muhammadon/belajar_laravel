@@ -13,6 +13,11 @@ Route::get('/', function () {
     return view('pages.home');
 })->name('home');
 
+// Route::get('/cek-auth', function () {
+//     return Auth::check() ? 'MASIH LOGIN' : 'SUDAH GUEST';
+// });
+
+
 Route::middleware('guest')->group(function() {
     Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
     Route::post('/login', [AuthController::class, 'login']);
